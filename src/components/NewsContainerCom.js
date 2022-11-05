@@ -32,7 +32,7 @@ export class NewsContainerCom extends Component {
 
 
     async componentDidMount() {
-        let data = await fetch("https://newsapi.org/v2/top-headlines?country=in&apiKey=ef988d6b5dce4215a3ce96e238b043e9");
+        let data = await fetch("https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=a2b28a79c9ee44d38780c60811b7a92a");
         let parsedData = await data.json();
         this.setState({
             article: parsedData.articles
