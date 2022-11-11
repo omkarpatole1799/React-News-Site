@@ -2,18 +2,17 @@ import logo from "./logo.svg";
 import "./App.css";
 import React, { useState } from 'react';
 import Navbar from "./components/Navbar";
-import FormComponent from "./components/FormCompnent";
+import TextOperation from "./components/TextOperation";
 import CounterComponent from "./components/CounterComponent";
 import AlertComponent from "./components/AlertComponent";
 import NewsContainerCom from "./components/NewsContainerCom";
-import NewsContainerCom2 from "./components/NewsContainerCom2";
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from "react-router-dom";
-
-
+import Footer from "./components/Footer";
+import Notes from "./components/Notes";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Work from "./components/Work";
+import LoginFormCom from "./components/LoginFormCom";
+import TableList from "./components/TableList";
+import Test from "./components/Test";
 
 function App() {
   const [mode, setMode] = useState('light');
@@ -47,22 +46,18 @@ function App() {
       <BrowserRouter>
         <Navbar title="Website" mode={mode} toggleMode={toggleMode} />
         <AlertComponent alert={alert} showAlert={showAlert} />
+
         <Routes>
-          <Route path='/about' element={
-            <FormComponent mode={mode} showAlert={showAlert} />
-          } />
 
-          <Route path='/counter' element={
-            <CounterComponent mode={mode} />
-          } />
+          <Route path="/work" element={<Work />} >
+            <Route path='news' element={<NewsContainerCom />} />
+            <Route path='counter' element={<CounterComponent mode={mode} />} />
+            <Route path="login-form" element={<LoginFormCom />} />
+            <Route path="table" element={<TableList />} />
+            <Route path="text-operation" element={<TextOperation showAlert={showAlert} mode={mode} />} />
+          </Route>
 
-          <Route path='/news' element={
-            <NewsContainerCom />
-          } />
-
-          <Route path='/news2' element={
-            <NewsContainerCom2 />
-          } />
+          <Route path="/test" element={<Test />} />
 
           <Route path='/' element={
             <div className="App">
@@ -81,9 +76,9 @@ function App() {
                 </a>
               </header>
             </div>
-
           } />
         </Routes>
+        <Footer />
 
       </BrowserRouter>
     </>

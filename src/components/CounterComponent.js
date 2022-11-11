@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import LoginFormCom from './LoginFormCom';
+import Other from './Other';
 
 export default function CounterComponent(props) {
     function increaseCount() {
@@ -17,17 +17,19 @@ export default function CounterComponent(props) {
     }
     const [count, setCount] = useState(0);
 
-    const [status, setStatus] = useState(true);
+    // const [status, setStatus] = useState(true);
 
-    function show() {
-        setStatus(true);
-    }
-    function hide() {
-        setStatus(false);
-    }
-    function toggle() {
-        setStatus(!status);
-    }
+    // function show() {
+    //     setStatus(true);
+    // }
+    // function hide() {
+    //     setStatus(false);
+    // }
+    // function toggle() {
+    //     setStatus(!status);
+    // }
+
+    
 
     return (
         <>
@@ -43,7 +45,7 @@ export default function CounterComponent(props) {
             </div>
 
 
-            <div className="container">
+            {/* <div className="container">
                 <div>
                     {
                         status ?
@@ -55,12 +57,8 @@ export default function CounterComponent(props) {
                 <button className="btn btn-primary btn-sm" onClick={show}>Show</button>
                 <button className="btn btn-primary btn-sm" onClick={hide}>Hide</button>
                 <button className="btn btn-primary btn-sm" onClick={toggle}>Toggle</button>
-            </div>
+            </div> */}
 
-
-            <div className="container">
-                <LoginFormCom />
-            </div>
         </>
     )
 }

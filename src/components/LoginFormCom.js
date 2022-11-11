@@ -1,24 +1,24 @@
 import React, { useState } from 'react'
-
 function LoginFormCom() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [checkBox, setCheckBox] = useState(null);
     const [emailError, setEmailError] = useState(false);
 
-    function getFormData(e){    
+    function getFormData(e) {
         e.preventDefault();
-        console.log(name,email,checkBox);
+        console.log(name, email, checkBox);
     }
 
-    function userNameHandle(e){
+    function userNameHandle(e) {
         let emailId = e.target.value;
-        if(emailId.length <=3){
+        if (emailId.length <= 3) {
             setEmailError(true);
         }
-        else{
+        else {
             setEmailError(false);
         }
+        setName(e.target.value)
     }
 
     return (
@@ -30,16 +30,16 @@ function LoginFormCom() {
                         <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
                         <input type="text" className="form-control" onChange={userNameHandle} id="exampleInputEmail1" aria-describedby="emailHelp" />
                         {
-                            emailError?<span><p>Invalid Email</p></span>:""
+                            emailError ? <span><p>Invalid Email</p></span> : ""
                         }
                     </div>
                     <div className="mb-3">
                         <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-                        <input type="password" className="form-control" onChange={(e)=>setEmail(e.target.value)} id="exampleInputPassword1" autoComplete='on'/>
+                        <input type="password" className="form-control" onChange={(e) => setEmail(e.target.value)} id="exampleInputPassword1" autoComplete='on' />
                     </div>
                     <div className="mb-3 form-check">
                         <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
-                        <input type="checkbox" className="form-check-input" onChange={(e)=>setCheckBox(e.target.value)} id="exampleCheck1" />
+                        <input type="checkbox" className="form-check-input" onChange={(e) => setCheckBox(e.target.value)} id="exampleCheck1" />
                         {/* <input type="checkbox" className="form-check-input" onChange={(e)=>setCheckBox.bind(e.target.value)} id="exampleCheck1" /> */}
                     </div>
                     <button type="submit" className="btn btn-primary">Submit</button>
